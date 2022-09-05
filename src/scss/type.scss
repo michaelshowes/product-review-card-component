@@ -1,3 +1,27 @@
+/* fraunces-700italic - latin */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/fraunces-700.woff2') format('woff2');
+}
+
+/* montserrat-500 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/montserrat-500.woff2') format('woff2');
+}
+
+/* montserrat-700 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/montserrat-700.woff2') format('woff2');
+}
+
 // Headers
 .h1,
 .h2,
@@ -21,121 +45,31 @@ h6 {
 }
 
 .h1 {
-  @include font-clamp(rem(36px), 7.2vw, rem(60px));
-  @include line-height(70, 60);
-}
+  @include rem(font-size, 32px);
+  @include line-height(32, 32);
 
-.h2 {
-  @include font-clamp(rem(28px), 5.6vw, rem(48px));
-  @include line-height(58, 48);
-}
-
-.h3 {
-  @include font-clamp(rem(22px), 4.4vw, rem(36px));
-  @include line-height(46, 36);
-}
-
-.h4 {
-  @include font-clamp(rem(20px), 4vw, rem(28px));
-  @include line-height(38, 28);
-}
-
-.h5 {
-  @include font-clamp(rem(18px), 3.6vw, rem(20px));
-  @include line-height(30, 20);
-}
-
-.h6,
-.eyebrow {
-  @include font-clamp(rem(12px), 3.2vw, rem(14px));
-  @include line-height(28, 14);
+  &.-green {
+    color: primary-color(aquamarine);
+  }
 }
 
 .eyebrow {
+  color: primary-color(aurometal);
+  @include rem(font-size, 12px);
+  @include line-height(14.63, 12);
+  letter-spacing: 5px;
   text-transform: uppercase;
-  @include font-weight(bold);
 }
 
-// Paragraphs
+.line-through {
+  color: primary-color(aurometal);
+  @include rem(font-size, 13);
+  @include line-height(23, 13);
+  text-decoration: line-through;
+}
+
 p {
-  @include rem(font-size, 16px);
-  @include line-height(24, 16);
-  margin: 0 0 20px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-// Lists
-ol,
-ul {
-  @include kill-bullets;
-}
-
-.wysiwyg-content {
-
-  ol,
-  ul {
-    list-style-position: outside;
-    padding-left: 15px;
-    margin-bottom: 20px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    li {
-      @include rem(font-size, 16px);
-      @include line-height(24, 16);
-      padding-left: 5px;
-      margin: 0 0 10px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      &::marker {
-        color: red;
-      }
-
-      ul,
-      ol {
-        margin-top: 10px;
-      }
-    }
-  }
-
-  ul {
-    list-style-type: disc;
-
-    ul {
-      list-style-type: circle;
-
-      ul {
-        list-style-type: square;
-      }
-    }
-  }
-
-  ol {
-    list-style-type: decimal;
-    padding-left: 20px;
-
-    & > li {
-
-      &::marker {
-        @include font-weight(bold);
-        font-size: .944em;
-      }
-    }
-
-    ol {
-      list-style-type: lower-alpha;
-
-      ol {
-        list-style-type: lower-roman;
-      }
-    }
-  }
+  color: primary-color(aurometal);
+  @include rem(font-size, 14px);
+  @include line-height(23, 14);
 }
