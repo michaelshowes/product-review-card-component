@@ -9,7 +9,13 @@
   </head>
   <body>
 
-    {% block content %}{% endblock %}
+    <div class="page-container">
+      <main class="main-content">
+        <article class="grid-container">
+          {% block content %}{% endblock %}
+        </article>
+      </main>
+    </div>
 
     {# JQuery #}
     <script src="js/jquery.min.js"></script>

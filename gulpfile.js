@@ -11,7 +11,11 @@ const postcss = require('gulp-postcss'),
       imagewebp = require('gulp-webp'),
       del = require('del'),
       twig = require('gulp-twig'),
-      browserSync = require('browser-sync').create();
+      browserSync = require('browser-sync').create(),
+      merge = require('gulp-merge-json'),
+      data = require('gulp-data'),
+      fs = require('fs');
+      $ = require('gulp-load-plugins');
 
 let paths = {
   dist: 'dist',
@@ -26,15 +30,19 @@ let paths = {
     src: 'src/**/!(*.min)*.js',
     dest: 'dist/js'
   },
+  json: 'src/**/*.json',
   img: {
     src: 'src/assets/images/*.{jpg,jpeg,png}',
     dest: 'dist/images'
   }
 }
 
-// Watch Twig
+// Twig Compile Task
 function twigTask() {
   return src(paths.twig)
+    .pipe(data(function(file) {
+      return JSON.parse(fs.readFileSync('src/data/data.json'));
+    }))
     .pipe(twig())
     .pipe(dest(paths.dist))
     .pipe(browserSync.stream());
@@ -59,6 +67,17 @@ function jsTask() {
     .pipe(dest(paths.js.dest, { sourcemaps: '.' }))
     .pipe(browserSync.stream());
 };
+
+// JSON Merge Task
+function mergeJson() {
+  return src(paths.json)
+    .pipe(merge({
+      fileName: 'data.json',
+      jsonSpace: '  '
+    }))
+    .pipe(dest('src/data/'))
+    .pipe(browserSync.stream());
+}
 
 // Transfer JQuery
 function jqTransfer() {
@@ -91,10 +110,10 @@ function fontsTransfer() {
 
 // Watch Task
 function watchTask() {
-  watch('src/**/*.twig', twigTask);
   watch('src/**/*.scss', scssTask);
   watch('src/**/*.js', jsTask);
-  watch('src/**/*.twig', jsTask);
+  watch('src/**/*.twig', twigTask);
+  watch('src/**/*.json', mergeJson);
   watch(paths.img.src, optimizeImage);
   watch(`${paths.img.dest}/*.{jpg,jpeg,png}`, webpConvert);
 };
@@ -109,7 +128,8 @@ function browserSyncServe(cb) {
   browserSync.init({
     server: {
       baseDir: 'dist'
-    }
+    },
+    open: false
   });
   cb();
 };
@@ -125,6 +145,7 @@ exports.dev = series(
   twigTask,
   scssTask,
   jsTask,
+  mergeJson,
   jqTransfer,
   fontsTransfer,
   browserSyncServe,
@@ -140,6 +161,7 @@ exports.build = series(
   twigTask,
   scssTask,
   jsTask,
+  mergeJson,
   jqTransfer,
   fontsTransfer,
   optimizeImage,

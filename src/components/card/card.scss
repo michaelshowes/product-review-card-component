@@ -1,3 +1,7 @@
 .card {
-  color: red;
+  @include grid-placement;
+
+  &-container {
+
+  }
 }

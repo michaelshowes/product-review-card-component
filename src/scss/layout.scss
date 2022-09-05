@@ -4,7 +4,6 @@
   grid-template-areas: 'header' 'main' 'footer';
   position: relative;
   min-height: 100%;
-  background: white;
   @include content-constraint(1600px);
 
   .site-header {
@@ -20,7 +19,6 @@
       position: relative;
       height: 100%;
       z-index: 10;
-      background-color: $body-bg-color;
       overflow: hidden;
       padding-bottom: 100px;
     }
