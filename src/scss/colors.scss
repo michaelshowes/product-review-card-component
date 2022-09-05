@@ -15,6 +15,16 @@ $primarycolors: (
   ),
   cream: (
     1: #F2EAE2
+  ),
+  aurometal: (
+    1: #6C7289
+  ),
+  aquamarine: (
+    1: #3D8168,
+    2: #1A4032
+  ),
+  gunmetal: (
+    1: #1C232B
   )
 );
 
@@ -38,6 +48,6 @@ $socialmediacolors: (
 );
 
 // Body colors
-$body-color: primary-color(black);
+$body-color: black;
 $body-color-dark: primary-color(gray, 3);
 $body-bg-color: primary-color(cream);

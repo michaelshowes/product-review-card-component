@@ -3,25 +3,27 @@ button {
   cursor: pointer;
   appearance: none;
   backface-visibility: hidden;
-  background: none;
-  color: inherit;
+  background: primary-color(aquamarine);
+  @include line-height(17, 14);
+  // @include font-weight(700);
+  font-weight: 700 !important;
+  color: white;
   font: inherit;
   border: 0;
+  border-radius: 8px;
   line-height: 1;
   padding: 0;
   transition: $ts $te;
+  padding: 15px 20px;
+
+  @include hover {
+    background-color: primary-color(aquamarine, 2);
+  }
 
   &:disabled,
   &[disabled] {
     opacity: .5;
     pointer-events: none;
-  }
-
-  &.-primary {
-    display: inline-flex;
-    padding: 10px 20px;
-    border: 1px solid primary-color(white);
-    transition: $ts $te;
   }
 }
 

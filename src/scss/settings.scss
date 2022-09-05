@@ -25,9 +25,13 @@ $slices: (
 
 $arial: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 
+$montserrat: 'Montserrat', san-serif;
+
+$fraunces: 'Fraunces', serif;
+
 // type variables
-$body-font: $arial;
-$header-font: $arial;
+$body-font: $montserrat;
+$header-font: $fraunces;
 
 ///////////////////////////////////////////////////////////////
 // NOTE: If you change this, you also need to change $rem-baseline
@@ -44,7 +48,7 @@ $mobile-menu-break: 7;
 $border-radius: 3px;
 
 // transitions
-$ts: .3s; // transition speed
+$ts: .2s; // transition speed
 $te: ease-in-out; // transition ease
 
 // animations

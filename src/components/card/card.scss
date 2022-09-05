@@ -4,4 +4,16 @@
   &-container {
 
   }
+
+  button {
+    width: 100%;
+
+    svg {
+      position: relative;
+      display: inline-block;
+      width: 14px;
+      top: 3px;
+      margin-right: 12px;
+    }
+  }
 }
