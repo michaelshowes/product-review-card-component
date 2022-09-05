@@ -1,12 +1,16 @@
 <article class="card">
   <div class="card-container">
 
-    <div class="card-image">
-    </div>
+    <div class="card-image"></div>
 
-    <div class="content">
+    <div class="card-content">
       <div class="eyebrow">{{ card.eyebrow }}</div>
-      <h1 class="h1">{{ card.title }}</h1>
+      <h1 class="h1 title">{{ card.title }}</h1>
+      <p>{{ card.text }}</p>
+      <div class="price">
+        <div class="h1 -green">${{ card.discounted_price }}</div>
+        <div class="line-through ">${{ card.price }}</div>
+      </div>
 
       <button>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.4 16" style="enable-background:new 0 0 14.4 16" xml:space="preserve">
@@ -14,8 +18,8 @@
         </svg>
         Add to Cart
       </button>
-    </div>
 
+    </div>
 
   </div>
 </article>
