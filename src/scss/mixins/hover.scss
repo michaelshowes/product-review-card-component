@@ -1,0 +1,37 @@
+// Hover
+//
+// Add styles for :hover, :focus, :active and .-focused
+//
+// Definition:
+// @mixin hover {
+//   &:active,
+//   &:focus,
+//   &:hover,
+//   &.-focused {
+//     @content;
+//   }
+// }
+//
+// Usage:
+// .sample {
+//   @include hover {
+//     color: red;
+//   }
+// }
+//
+// Compiled:
+// .sample:active,
+// .sample:focus,
+// .sample:hover,
+// .sample.-focused {
+//   color: red;
+// }
+
+@mixin hover {
+  &:active,
+  &:focus,
+  &:hover,
+  &.-focused {
+    @content;
+  }
+}

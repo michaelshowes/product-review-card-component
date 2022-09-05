@@ -1,0 +1,43 @@
+
+// Primary Colors
+$primarycolors: (
+  white: (
+    1: #fff
+  ),
+  black: (
+    1: #000
+  ),
+  gray: (
+    1: #f5f5f5,
+    2: #666,
+    3: #333,
+    4: #1a1a1a
+  ),
+  pink: (
+    1: #ed1e79
+  )
+);
+
+
+// Secondary Colors
+$secondarycolors: (
+  red: (
+    1: #f00,
+    tint1: lighten(#f00, 10%),
+    shade1: darken(#f00, 10%)
+  )
+);
+
+// Social Media Colors
+$socialmediacolors: (
+  facebook:   #3b5998,
+  twitter:    #1da1f2,
+  linkedin:   #007bb5,
+  youtube:    #f00,
+  instagram:  #c32aa3
+);
+
+// Body colors
+$body-color: primary-color(white);
+$body-color-dark: primary-color(gray, 3);
+$body-bg-color: primary-color(gray, 1)

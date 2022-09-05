@@ -1,0 +1,80 @@
+// Font Weight
+//
+// Compiles a string font-weight to it's associated integer font weight
+//
+// $weight = null - Desired font weight as a string
+//
+// Definition:
+// @mixin font-weight($weight) {
+//   $weights: (
+//     thin: 100,
+//     extra-light: 200,
+//     ultra-light: 200,
+//     light: 300,
+//     normal: 400,
+//     book: 400,
+//     regular: 400,
+//     roman: 400,
+//     medium: 500,
+//     semi-bold: 600,
+//     demibold: 600,
+//     demi-bold: 600,
+//     bold: 700,
+//     extra-bold: 800,
+//     ultra-bold: 900,
+//     heavy: 900,
+//     black: 900,
+//     ultra: 900,
+//     ultra-black: 900,
+//     extra-ultra: 900
+//   );
+//   $output: $weight;
+//   @if map-has-key($weights, $weight) {
+//     $output: map-get($weights, $weight);
+//   }
+//   font-weight: $output;
+// }
+//
+// Usage:
+// .sample {
+//   @include font-weight(medium);
+// }
+//
+// Compiled:
+// .sample {
+//   font-weight: 500;
+// }
+//
+// Styleguide Sass Mixins.Font Weight
+@mixin font-weight($weight) {
+  $weights: (
+    thin: 100,
+    extra-light: 200,
+    ultra-light: 200,
+    light: 300,
+    normal: 400,
+    book: 400,
+    regular: 400,
+    roman: 400,
+    medium: 500,
+    semibold: 600,
+    semi-bold: 600,
+    demibold: 600,
+    demi-bold: 600,
+    bold: 700,
+    extra-bold: 800,
+    ultra-bold: 900,
+    heavy: 900,
+    black: 900,
+    ultra: 900,
+    ultra-black: 900,
+    extra-ultra: 900
+  );
+
+  $output: $weight;
+  @if map-has-key($weights, $weight) {
+    $output: map-get($weights, $weight);
+  }
+
+  font-weight: $output;
+}

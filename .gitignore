@@ -1,0 +1,17 @@
+# Ignore . files and others.
+.DS_Store
+.idea
+.bundle
+*.code-workspace
+*.ini
+*.log
+apc.php
+error_log
+
+# Ignore node_modules bundle and vendor
+node_modules
+/vendor
+
+# Ignore compiled output
+dist
+sourcemaps

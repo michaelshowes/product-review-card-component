@@ -1,0 +1,31 @@
+// Content Constraint
+//
+// Applies a max-width to constrain content size
+//
+// $width = 1400px - Max-width of container
+//
+// Definition:
+// @mixin content-constraint($width: 1400px) {
+//   max-width: $width;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+//
+// Usage:
+// .sample {
+//   @include content-constraint;
+// }
+//
+// Compiled:
+// .sample {
+//   max-width: 1400px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+//
+// Styleguide Sass Mixins.Content Constraint
+@mixin content-constraint($width: $inner-max-width) {
+  max-width: $width;
+  margin-left: auto;
+  margin-right: auto;
+}

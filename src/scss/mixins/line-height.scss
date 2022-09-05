@@ -1,0 +1,24 @@
+// Line Height
+//
+// $leading   = null - Leading
+// $font-size = null - Font Size
+//
+// Definition:
+// @mixin line-height($leading, $font-size) {
+//   line-height: math.div($leading, $font-size);
+// }
+//
+// Usage:
+// .sample {
+//   @include line-height(24, 16);
+// }
+//
+// Compiled:
+// .sample {
+//   line-height: 1.5;
+// }
+//
+// Styleguide Sass Mixins.Line Height
+@mixin line-height($leading, $font-size) {
+  line-height: math.div($leading, $font-size);
+}

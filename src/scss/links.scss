@@ -1,0 +1,25 @@
+.js-link-event {
+  cursor: pointer;
+}
+
+a,
+a:visited {
+  color: white;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  transition: $ts $te;
+
+  @include hover {
+    color: primary-color(pink);
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: .5;
+    pointer-events: none;
+  }
+}

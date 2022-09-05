@@ -1,0 +1,35 @@
+// Move
+//
+// Moves an element a distance in the specified direction
+//
+// $direction = null - Direction to move (up, right, down, left)
+// $distance  = null - Distance to move (px, rem, em, etc.)
+//
+// Definition:
+// @mixin move($direction, $distance) {
+//   position: relative;
+//   @if ($direction == 'up')    { top: -$distance; }
+//   @if ($direction == 'right') { right: $distance; }
+//   @if ($direction == 'down')  { top: $distance; }
+//   @if ($direction == 'left')  { left: $distance; }
+// }
+//
+// Usage:
+// .sample {
+//   @include move(left, 5px);
+// }
+//
+// Compiled:
+// .sample {
+//   position: relative;
+//   left: 5px;
+// }
+//
+// Styleguide Sass Mixins.Move
+@mixin move($direction, $distance) {
+  position: relative;
+  @if ($direction == 'up')    { top: -$distance; }
+  @if ($direction == 'right') { right: $distance; }
+  @if ($direction == 'down')  { top: $distance; }
+  @if ($direction == 'left')  { left: $distance; }
+}

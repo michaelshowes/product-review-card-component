@@ -1,0 +1,39 @@
+// Absolute
+//
+// Absolulety positions an element
+//
+// $top    = null - Top value
+// $right  = null - Right value
+// $bottom = null - Bottom value
+// $left   = null - Left value
+//
+// Definition:
+// @mixin absolute($top:null, $right:null, $bottom:null, $left:null) {
+//   position: absolute;
+//   @if $top    { top: $top; }
+//   @if $right  { right: $right; }
+//   @if $bottom { bottom: $bottom; }
+//   @if $left   { left: $left; }
+// }
+//
+// Usage:
+// .sample {
+//   @include absolute(10px, 10px, 5px, 15px);
+// }
+//
+// Compiled:
+// .sample {
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   bottom: 5px;
+//   left: 15px;
+// }
+
+@mixin absolute($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  @if $top    { top: $top; }
+  @if $right  { right: $right; }
+  @if $bottom { bottom: $bottom; }
+  @if $left   { left: $left; }
+}

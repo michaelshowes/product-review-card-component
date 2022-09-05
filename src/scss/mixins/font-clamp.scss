@@ -1,0 +1,45 @@
+// Font Clamp
+//
+// This is a mixin to mimic the behavior of native css clamp() while supporting Safari 12.x and 13.0. Clamps a value between an upper and lower bound while selecting a middle value within a range of values between a defined minimum and maximum. See https://developer.mozilla.org/en-US/docs/Web/CSS/clamp() for more info.
+//
+// $min    = null - Lower bound
+// $val    = null - Preferred value. Should be either `vw` or `%`
+// $max    = null - Upper bound
+//
+// Definition:
+// @mixin font-clamp($min, $val, $max) {
+//   font-size: max(#{$min}, min(#{$val}, #{$max}));
+//   @media not all and (min-resolution: .001dpcm) {
+//     @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+//       min-height: .0001vw;
+//     }
+//   }
+// }
+//
+// Usage:
+// .h1 {
+//   @include font-clamp(rem(26px), 7vw, rem(48px));
+// }
+//
+// Compiled:
+// .h1 {
+//   font-size: max(1.625rem, min(7vw, 3rem));
+//   @media not all and (min-resolution: .001dpcm) {
+//     @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+//       min-height: .0001vw;
+//     }
+//   }
+// }
+//
+// Styleguide Sass Mixins.Font Clamp
+@mixin font-clamp($min, $val, $max) {
+  font-size: max(#{$min}, min(#{$val}, #{$max}));
+
+  // This is to solve a stupid bug in Safari that makes min/max/clamp
+  // not work on font-size with vw units as a basis
+  @media not all and (min-resolution: .001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      min-height: .0001vw;
+    }
+  }
+}

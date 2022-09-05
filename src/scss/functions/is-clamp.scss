@@ -1,0 +1,36 @@
+// Clamp
+//
+// This is a mixin to mimic the behavior of native css clamp() while supporting Safari 12.x and 13.0. Clamps a value between an upper and lower bound while selecting a middle value within a range of values between a defined minimum and maximum. See https://developer.mozilla.org/en-US/docs/Web/CSS/clamp() for more info.
+//
+// $min      = null - Lower bound
+// $val      = null - Preferred value. Should be either `vw` or `%`
+// $max      = null - Upper bound
+// $negative = false - Whether to inverse the values to make it negative
+//
+// Function:
+// @function is-clamp($min, $val, $max, $negative: false) {
+//   @if $negative {
+//     @return max(-#{$max}, min(-#{$val}, -#{$min}));
+//   } @else {
+//     @return max(#{$min}, min(#{$val}, #{$max}));
+//   }
+// }
+//
+// Usage:
+// .h1 {
+//   margin-bottom: is-clamp(rem(26px), 7vw, rem(48px));
+// }
+//
+// Compiled:
+// .h1 {
+//   margin-bottom: max(1.625rem, min(7vw, 3rem))
+// }
+//
+// Styleguide Sass Functions.Clamp
+@function is-clamp($min, $val, $max, $negative: false) {
+  @if $negative {
+    @return max(-#{$max}, min(-#{$val}, -#{$min}));
+  } @else {
+    @return max(#{$min}, min(#{$val}, #{$max}));
+  }
+}

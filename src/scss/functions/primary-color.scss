@@ -1,0 +1,21 @@
+// Primary Color
+//
+// Gets hex value from Sass map
+//
+// $color = null - Color name from the Sass map
+// $tone = base - Tone (tint or shade)
+//
+// Function:
+// @function primary-color($color, $tone: base) {
+//   @return map-get(map-get($primarycolors, $color), $tone);
+// }
+//
+// Usage:
+// color: primary-color(orange, dark);
+//
+// Compiled:
+// color: #f2530f;
+
+@function primary-color($color, $tone: 1) {
+  @return map-get(map-get($primarycolors, $color), $tone);
+}

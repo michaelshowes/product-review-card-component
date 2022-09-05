@@ -1,0 +1,41 @@
+// Screen-Reader Text
+//
+// Visually hides elements but keeps them visible to search engines and screen readers
+//
+// Definition:
+// @mixin sr-text {
+//   clip: rect(1px, 1px, 1px, 1px);
+//   clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+//   position: absolute;
+//   white-space: nowrap;
+//   height: 1px;
+//   width: 1px;
+//   overflow: hidden;
+// }
+//
+// Usage:
+// .sample {
+//   @include sr-text;
+// }
+//
+// Compiled:
+// .sample {
+//   clip: rect(1px, 1px, 1px, 1px);
+//   clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+//   position: absolute;
+//   white-space: nowrap;
+//   height: 1px;
+//   width: 1px;
+//   overflow: hidden;
+// }
+//
+// Styleguide Sass Mixins.Screen-Reader Text
+@mixin sr-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  overflow: hidden;
+}

@@ -1,0 +1,51 @@
+
+// Slicer Breakpoints
+$slices: (
+  0:    0px,
+  1:    100px,
+  2:    200px,
+  3:    3200px,
+  4:    400px,
+  5:    500px,
+  6:    600px,
+  7:    768px,
+  8:    840px,
+  9:    900px,
+  10:   1000px,
+  11:   1100px,
+  12:   1200px,
+  13:   1300px,
+  14:   1400px,
+  15:   1500px,
+  16:   1600px,
+  17:   1700px,
+  18:   1800px,
+  19:   1920px,
+);
+
+$arial: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+// type variables
+$body-font: $arial;
+$header-font: $arial;
+
+///////////////////////////////////////////////////////////////
+// NOTE: If you change this, you also need to change $rem-baseline
+//       in src/global-scss/helpers/mixins/_rem.scss
+///////////////////////////////////////////////////////////////
+$base-font-size: 16px;
+
+$component-margin: 120px;
+$inner-max-width: 1400px;
+
+$mobile-menu-break: 7;
+
+// radius
+$border-radius: 3px;
+
+// transitions
+$ts: .3s; // transition speed
+$te: ease-in-out; // transition ease
+
+// animations
+$use-fadeInUp: true;

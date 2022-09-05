@@ -1,0 +1,20 @@
+// Social Media Color
+//
+// Gets hex value from Sass map for social media platforms
+//
+// $platform = null - Name of social media platform
+//
+// Function:
+// @function sm-color($platform) {
+//   @return map-get($socialmediacolors, $platform);
+// }
+//
+// Usage:
+// color: sm-color(facebook);
+//
+// Compiled:
+// color: #3b5998;
+
+@function sm-color($platform) {
+  @return map-get($socialmediacolors, $platform);
+}

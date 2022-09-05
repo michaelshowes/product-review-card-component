@@ -1,0 +1,38 @@
+// Kill bullets
+//
+// Removes bullets from lists
+//
+// $margin  = 0 - Margin for list
+// $padding = 0 - Padding for list
+//
+// Definition:
+// @mixin kill-bullets($margin: 0, $padding: 0) {
+//   margin: $margin;
+//   padding: $padding;
+//   list-style: none;
+// }
+//
+// Usage:
+// ul {
+//   @include kill-bullets;
+// }
+// ol {
+//   @include kill-bullets(0 0 20px, 0 0 0 15px);
+// }
+//
+// Compiled:
+// ul {
+//   list-style: none;
+//   padding: 0;
+//   margin: 0;
+// }
+// ol {
+//   list-style: none;
+//   padding: 0 0 0 15px;
+//   margin: 0 0 20px;
+// }
+@mixin kill-bullets($margin: 0, $padding: 0) {
+  list-style: none;
+  padding: $padding;
+  margin: $margin;
+}

@@ -1,0 +1,31 @@
+@use 'sass:math';
+
+// Vendor
+@import 'scss/scss-vendor/vendor';
+
+// Settings / Variables
+@import 'scss/settings';
+
+// Mixins
+@import 'scss/mixins/**/*';
+
+// Sass Functions
+@import 'scss/functions/**/*';
+
+// Colors
+@import 'scss/colors';
+
+// Globals
+@import 'scss/global';
+@import 'scss/animations/animate';
+
+// Typography
+@import 'scss/type';
+
+// Layout
+@import 'scss/layout';
+
+// Component styles
+@import 'scss/links';
+@import 'scss/buttons';
+@import 'components/**/*';

@@ -1,0 +1,141 @@
+// Headers
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font;
+  @include font-weight(semibold);
+  margin: 0 0 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.h1 {
+  @include font-clamp(rem(36px), 7.2vw, rem(60px));
+  @include line-height(70, 60);
+}
+
+.h2 {
+  @include font-clamp(rem(28px), 5.6vw, rem(48px));
+  @include line-height(58, 48);
+}
+
+.h3 {
+  @include font-clamp(rem(22px), 4.4vw, rem(36px));
+  @include line-height(46, 36);
+}
+
+.h4 {
+  @include font-clamp(rem(20px), 4vw, rem(28px));
+  @include line-height(38, 28);
+}
+
+.h5 {
+  @include font-clamp(rem(18px), 3.6vw, rem(20px));
+  @include line-height(30, 20);
+}
+
+.h6,
+.eyebrow {
+  @include font-clamp(rem(12px), 3.2vw, rem(14px));
+  @include line-height(28, 14);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  @include font-weight(bold);
+}
+
+// Paragraphs
+p {
+  @include rem(font-size, 16px);
+  @include line-height(24, 16);
+  margin: 0 0 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Lists
+ol,
+ul {
+  @include kill-bullets;
+}
+
+.wysiwyg-content {
+
+  ol,
+  ul {
+    list-style-position: outside;
+    padding-left: 15px;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      @include rem(font-size, 16px);
+      @include line-height(24, 16);
+      padding-left: 5px;
+      margin: 0 0 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::marker {
+        color: red;
+      }
+
+      ul,
+      ol {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+
+    ul {
+      list-style-type: circle;
+
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+
+    & > li {
+
+      &::marker {
+        @include font-weight(bold);
+        font-size: .944em;
+      }
+    }
+
+    ol {
+      list-style-type: lower-alpha;
+
+      ol {
+        list-style-type: lower-roman;
+      }
+    }
+  }
+}

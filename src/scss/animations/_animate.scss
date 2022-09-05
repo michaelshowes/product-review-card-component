@@ -1,0 +1,98 @@
+////////////////////////////////////////////////////////////
+// Import everything to generate your animate sass module //
+////////////////////////////////////////////////////////////
+@import "helpers/mixins",
+	"helpers/settings",
+	"helpers/base";
+
+// ATTENTION
+@import	"attention-seekers/bounce",
+	"attention-seekers/flash",
+	"attention-seekers/pulse",
+	"attention-seekers/shake",
+	"attention-seekers/swing",
+	"attention-seekers/wiggle",
+	"attention-seekers/wobble",
+	"attention-seekers/tada";
+
+// BOUNCE
+@import "bounce-enter/bounceIn",
+	"bounce-enter/bounceInDown",
+	"bounce-enter/bounceInLeft",
+	"bounce-enter/bounceInRight",
+	"bounce-enter/bounceInUp",
+	"bounce-exit/bounceOut",
+	"bounce-exit/bounceOutDown",
+	"bounce-exit/bounceOutLeft",
+	"bounce-exit/bounceOutRight",
+	"bounce-exit/bounceOutUp";
+
+// FADE
+@import	"fade-enter/fadeIn",
+	"fade-enter/fadeInDown",
+	"fade-enter/fadeInDownBig",
+	"fade-enter/fadeInLeft",
+	"fade-enter/fadeInLeftBig",
+	"fade-enter/fadeInRight",
+	"fade-enter/fadeInRightBig",
+	"fade-enter/fadeInUp",
+	"fade-enter/fadeInUpBig",
+	"fade-exit/fadeOut",
+	"fade-exit/fadeOutDown",
+	"fade-exit/fadeOutDownBig",
+	"fade-exit/fadeOutLeft",
+	"fade-exit/fadeOutLeftBig",
+	"fade-exit/fadeOutRight",
+	"fade-exit/fadeOutRightBig",
+	"fade-exit/fadeOutUp",
+	"fade-exit/fadeOutUpBig";
+
+// FLIP
+@import "flippers/flip",
+	"flippers/flipInX",
+	"flippers/flipInY",
+	"flippers/flipOutX",
+	"flippers/flipOutY";
+
+// LIGHTSPEED
+@import	"lightspeed/lightSpeedIn",
+	"lightspeed/lightSpeedOut";
+
+// ROTATE
+@import	"rotate-enter/rotateIn",
+	"rotate-enter/rotateInDownLeft",
+	"rotate-enter/rotateInDownRight",
+	"rotate-enter/rotateInUpLeft",
+	"rotate-enter/rotateInUpRight",
+	"rotate-exit/rotateOut",
+	"rotate-exit/rotateOutDownLeft",
+	"rotate-exit/rotateOutDownRight",
+	"rotate-exit/rotateOutUpLeft",
+	"rotate-exit/rotateOutUpRight";
+
+// SLIDE
+@import "slide-enter/slideInDown",
+	"slide-enter/slideInLeft",
+	"slide-enter/slideInRight",
+	"slide-enter/slideInUp",
+	"slide-exit/slideOutDown",
+	"slide-exit/slideOutLeft",
+	"slide-exit/slideOutRight",
+	"slide-exit/slideOutUp";
+
+// SPECIAL
+@import "special/hinge",
+	"special/rollIn",
+	"special/rollOut";
+
+// ZOOM
+@import "zoom-enter/zoomIn",
+	"zoom-enter/zoomInDown",
+	"zoom-enter/zoomInLeft",
+	"zoom-enter/zoomInRight",
+	"zoom-enter/zoomInUp",
+	"zoom-exit/zoomOut",
+	"zoom-exit/zoomOutDown",
+	"zoom-exit/zoomOutLeft",
+	"zoom-exit/zoomOutRight",
+	"zoom-exit/zoomOutUp";

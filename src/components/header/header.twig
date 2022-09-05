@@ -1,0 +1,15 @@
+<header class="header" >
+  <div class="inner">
+
+    {# Logo #}
+    <h1 class="logo">
+      <a class="logo-link" href="{{site.url}}">{{site.name}}</a>
+    </h1>
+
+    {# Nav #}
+    <nav class="nav-main">
+      {% include "menu.twig" with {'items': menu.get_items} %}
+    </nav>
+
+  </div>
+</header>

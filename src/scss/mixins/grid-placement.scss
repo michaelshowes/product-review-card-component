@@ -1,0 +1,56 @@
+@use 'sass:list';
+
+// Grid Placement
+//
+// Specifies grid placement for the grid defined in src/global-scss/_layout.scss
+//
+// $type = contrained - Grid type (possible values: contrained, full-bleed, left-bleed, right-bleed)
+// $max-width = null - Inner max-width to be used if the desired max-width is LESS THAN the $inner-max-width declaredin sec/global-scss/_settings.scss
+//
+// Definition:
+// $grid-type: (
+//   constrained: main,
+//   full-bleed:  full,
+//   left-bleed:  full / main,
+//   right-bleed: main / full
+// );
+// @mixin grid-placement($type: constrained, $max-width: null) {
+//   grid-column: map-get($grid-type, $type);
+//   @if $max-width {
+//     width: 100%;
+//     max-width: $max-width;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }
+//
+// Usage:
+// .component {
+//   @include grid-placement;
+// }
+//
+// Compiled:
+// .component {
+//   grid-column: main;
+// }
+//
+// Styleguide Sass Mixins.Grid Placement
+
+// Grid type variables
+$grid-type: (
+  constrained: main,
+  full-bleed:  full,
+  left-bleed:  list.slash(full, main),
+  right-bleed: list.slash(main, full)
+);
+
+@mixin grid-placement($type: constrained, $max-width: null) {
+  grid-column: map-get($grid-type, $type);
+
+  @if $max-width {
+    width: 100%;
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

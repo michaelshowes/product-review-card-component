@@ -1,0 +1,32 @@
+.page-container {
+  display: grid;
+  grid-template: auto 1fr auto / minmax(0, 1fr);
+  grid-template-areas: 'header' 'main' 'footer';
+  position: relative;
+  min-height: 100%;
+  background: white;
+  @include content-constraint(1600px);
+
+  .site-header {
+    grid-area: header;
+  }
+
+  .main-content {
+    grid-area: main;
+
+    // NOTE: ALL direct descendants of this container MUST have a grid-column declared
+    .grid-container {
+      @extend %grid-columns;
+      position: relative;
+      height: 100%;
+      z-index: 10;
+      background-color: $body-bg-color;
+      overflow: hidden;
+      padding-bottom: 100px;
+    }
+  }
+
+  .site-footer {
+    grid-area: footer;
+  }
+}
