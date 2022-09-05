@@ -47,9 +47,11 @@ h6 {
 .h1 {
   @include rem(font-size, 32px);
   @include line-height(32, 32);
+  margin-bottom: 16px;
 
   &.-green {
     color: primary-color(aquamarine);
+    margin-bottom: 0;
   }
 }
 
@@ -59,6 +61,7 @@ h6 {
   @include line-height(14.63, 12);
   letter-spacing: 5px;
   text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .line-through {
@@ -72,4 +75,5 @@ p {
   color: primary-color(aurometal);
   @include rem(font-size, 14px);
   @include line-height(23, 14);
+  margin-bottom: 24px;
 }

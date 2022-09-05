@@ -1,19 +1,77 @@
 .card {
   @include grid-placement;
+  margin: auto 0;
 
   &-container {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
 
+    @include from(5) {
+      display: flex;
+    }
   }
 
-  button {
-    width: 100%;
+  &-image {
+    background-image: url('../images/image-product-mobile.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 240px;
+    flex: 1;
 
-    svg {
-      position: relative;
-      display: inline-block;
-      width: 14px;
-      top: 3px;
-      margin-right: 12px;
+    @include from(5) {
+      background-image: url('../images/image-product-desktop.webp');
+      height: unset;
+    }
+  }
+
+  &-content {
+    padding: 24px;
+    flex: 1;
+
+    @include from(5) {
+      padding: 32px;
+      max-width: 50%;
+
+      .eyebrow {
+        margin-bottom: 20px;
+      }
+
+      .title {
+        margin-bottom: 24px;
+      }
+
+      p {
+        margin-bottom: 29px;
+      }
+
+      .price {
+        margin-bottom: 30px !important;
+      }
+    }
+
+    .price {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .-green {
+        margin-right: 19px;
+      }
+    }
+
+    button {
+      width: 100%;
+
+      svg {
+        position: relative;
+        display: inline-block;
+        width: 14px;
+        top: 3px;
+        margin-right: 12px;
+      }
     }
   }
 }
