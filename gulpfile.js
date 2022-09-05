@@ -100,14 +100,8 @@ function optimizeImage() {
       imagemin.mozjpeg({ quality:80, progressive: true }),
       imagemin.optipng({ optimizationLevel: 2 })
     ]))
+    .pipe(imagewebp())
     .pipe(dest(paths.img.dest));
-};
-
-// Webp Convert Task
-function webpConvert() {
-  return src(paths.img.src)
-  .pipe(imagewebp())
-  .pipe(dest(paths.img.dest));
 };
 
 // Transfer fonts
@@ -160,7 +154,6 @@ exports.dev = series(
   browserSyncServe,
   browserSyncReload,
   optimizeImage,
-  webpConvert,
   watchTask
 );
 
@@ -173,8 +166,7 @@ exports.build = series(
   mergeJson,
   jqTransfer,
   fontsTransfer,
-  optimizeImage,
-  webpConvert
+  optimizeImage
 );
 
 // Clean dist folder
