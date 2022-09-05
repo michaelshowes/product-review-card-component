@@ -13,10 +13,6 @@ a {
   text-decoration: none;
   transition: $ts $te;
 
-  @include hover {
-    color: primary-color(pink);
-  }
-
   &:disabled,
   &[disabled] {
     opacity: .5;

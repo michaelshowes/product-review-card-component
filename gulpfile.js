@@ -10,11 +10,12 @@ const postcss = require('gulp-postcss'),
       imagemin = require('gulp-imagemin'),
       imagewebp = require('gulp-webp'),
       del = require('del'),
+      twig = require('gulp-twig'),
       browserSync = require('browser-sync').create();
 
 let paths = {
   dist: 'dist',
-  twig: 'src/pages/home.twig',
+  twig: 'src/pages/index.twig',
   fonts: 'src/assets/fonts',
   jquery: 'src/assets/js/jquery.min.js',
   css: {
@@ -32,8 +33,10 @@ let paths = {
 }
 
 // Watch Twig
-function watchTwig() {
+function twigTask() {
   return src(paths.twig)
+    .pipe(twig())
+    .pipe(dest(paths.dist))
     .pipe(browserSync.stream());
 }
 
@@ -88,6 +91,7 @@ function fontsTransfer() {
 
 // Watch Task
 function watchTask() {
+  watch('src/**/*.twig', twigTask);
   watch('src/**/*.scss', scssTask);
   watch('src/**/*.js', jsTask);
   watch('src/**/*.twig', jsTask);
@@ -103,8 +107,9 @@ function cleanTask() {
 // Browsersync Tasks
 function browserSyncServe(cb) {
   browserSync.init({
-    proxy: "localhost:8000",
-    open: false
+    server: {
+      baseDir: 'dist'
+    }
   });
   cb();
 };
@@ -117,7 +122,7 @@ function browserSyncReload(cb) {
 // Development Server
 exports.dev = series(
   cleanTask,
-  watchTwig,
+  twigTask,
   scssTask,
   jsTask,
   jqTransfer,
@@ -132,6 +137,7 @@ exports.dev = series(
 // Build
 exports.build = series(
   cleanTask,
+  twigTask,
   scssTask,
   jsTask,
   jqTransfer,

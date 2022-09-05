@@ -1,43 +1,21 @@
-{% block html_head_container %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+  </head>
+  <body>
 
-{% include 'pages/partials/html-header.twig' %}
-	{% block head %}
-	{% endblock %}
-	</head>
-{% endblock %}
-
-	<body>
-
-    {# Skip Link for a11y #}
-		{# <a class="skip-link screen-reader-text" href="#maincontent">{{ _e( 'Skip to content') }}</a> #}
-
-    <div class="page-container">
-
-      {# Header #}
-      {% block header %}
-        {% include 'components/site-header/site-header.twig' %}
-      {% endblock %}
-
-      <main id="maincontent" class="main-content">
-        <div class="grid-container">
-          {% if title %}<h1>{{title}}</h1>{% endif %}
-          {% block body %}{% endblock %}
-        </div>
-      </main>
-
-      {# Footer #}
-      {% block footer %}
-        {% include 'components/site-footer/site-footer.twig' %}
-        {{ function('wp_footer') }}
-      {% endblock %}
-
-    </div>
+    {% block content %}{% endblock %}
 
     {# JQuery #}
-    <script src="{{ site.theme.link }}/dist/js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
 
     {# Custom JS #}
-    <script src="{{ site.theme.link }}/dist/js/bundle.js"></script>
+    <script src="js/bundle.js"></script>
 
 	</body>
 </html>

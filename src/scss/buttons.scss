@@ -22,11 +22,6 @@ button {
     padding: 10px 20px;
     border: 1px solid primary-color(white);
     transition: $ts $te;
-
-    @include hover {
-      background: primary-color(pink);
-      color: primary-color(white);
-    }
   }
 }
 

@@ -13,8 +13,8 @@ $primarycolors: (
     3: #333,
     4: #1a1a1a
   ),
-  pink: (
-    1: #ed1e79
+  cream: (
+    1: #F2EAE2
   )
 );
 
@@ -40,4 +40,4 @@ $socialmediacolors: (
 // Body colors
 $body-color: primary-color(white);
 $body-color-dark: primary-color(gray, 3);
-$body-bg-color: primary-color(gray, 1)
+$body-bg-color: primary-color(cream);
