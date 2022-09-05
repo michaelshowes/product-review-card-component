@@ -17,23 +17,25 @@ const postcss = require('gulp-postcss'),
       fs = require('fs');
       $ = require('gulp-load-plugins');
 
-let paths = {
-  dist: 'dist',
-  twig: 'src/pages/index.twig',
-  fonts: 'src/assets/fonts',
-  jquery: 'src/assets/js/jquery.min.js',
+const root = 'src',
+      dist = 'dist'
+
+const paths = {
+  twig: `${root}/pages/index.twig`,
+  fonts: `${root}/assets/fonts/*`,
+  jquery: `${root}/assets/js/jquery.min.js`,
   css: {
-    src: 'src/main.scss',
-    dest: 'dist/css'
+    src: `${root}/main.scss`,
+    dest: `${dist}/css`
   },
   js: {
-    src: 'src/**/!(*.min)*.js',
-    dest: 'dist/js'
+    src: `${root}/**/!(*.min)*.js`,
+    dest: `${dist}/js`
   },
-  json: 'src/**/*.json',
+  json: `${root}/**/*.json`,
   img: {
-    src: 'src/assets/images/*.{jpg,jpeg,png}',
-    dest: 'dist/images'
+    src: `${root}/assets/images/*.{jpg,jpeg,png}`,
+    dest: `${dist}/images`
   }
 }
 
@@ -41,10 +43,16 @@ let paths = {
 function twigTask() {
   return src(paths.twig)
     .pipe(data(function(file) {
-      return JSON.parse(fs.readFileSync('src/data/data.json'));
+      return JSON.parse(fs.readFileSync(`${root}/data/data.json`));
     }))
-    .pipe(twig())
-    .pipe(dest(paths.dist))
+    .pipe(twig({
+      namespaces: {
+        'components': `${root}/components`,
+        'partials': `${root}/components/_partials`,
+        'svg': `${root}/components/_svg`
+      }
+    }))
+    .pipe(dest(dist))
     .pipe(browserSync.stream());
 }
 
@@ -75,14 +83,14 @@ function mergeJson() {
       fileName: 'data.json',
       jsonSpace: '  '
     }))
-    .pipe(dest('src/data/'))
+    .pipe(dest(`${root}/data`))
     .pipe(browserSync.stream());
 }
 
 // Transfer JQuery
 function jqTransfer() {
   return src(paths.jquery)
-    .pipe(dest(`${paths.dist}/js`));
+    .pipe(dest(`${dist}/js`));
 }
 
 // Images Task
@@ -105,29 +113,30 @@ function webpConvert() {
 // Transfer fonts
 function fontsTransfer() {
   return src(paths.fonts)
-    .pipe(dest(paths.dist));
+    .pipe(dest(`${dist}/fonts`));
 }
 
 // Watch Task
 function watchTask() {
-  watch('src/**/*.scss', scssTask);
-  watch('src/**/*.js', jsTask);
-  watch('src/**/*.twig', twigTask);
-  watch('src/**/*.json', mergeJson);
+  watch(`${root}/**/*.scss`, scssTask);
+  watch(`${root}/**/*.js`, jsTask);
+  watch(`${root}/**/*.twig`, twigTask);
+  watch(`${root}/**/*.json`, mergeJson);
   watch(paths.img.src, optimizeImage);
+  watch(paths.fonts, fontsTransfer);
   watch(`${paths.img.dest}/*.{jpg,jpeg,png}`, webpConvert);
 };
 
 // Clean Task
 function cleanTask() {
-  return del(paths.dist);
+  return del(dist);
 };
 
 // Browsersync Tasks
 function browserSyncServe(cb) {
   browserSync.init({
     server: {
-      baseDir: 'dist'
+      baseDir: dist
     },
     open: false
   });
