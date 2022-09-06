@@ -118,7 +118,6 @@ function watchTask() {
   watch(`${root}/**/*.json`, mergeJson);
   watch(paths.img.src, optimizeImage);
   watch(paths.fonts, fontsTransfer);
-  watch(`${paths.img.dest}/*.{jpg,jpeg,png}`, webpConvert);
 };
 
 // Clean Task
